@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Cliente.Models.Cli>
+
+    @{
+        ViewData["Title"] = "Lista Cliente";
+    }
+
+    <h1>Clientes</h1>
+
+    <p>
+        <a class="btn btn-success" aps-action="Create">Adicionar Cliente</a>
+    </p>
+    <table class="table">
+        <thread>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco)
+                </th>
+            </tr>
+        </thread>
+        <tbody>
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                        Editar
+                    </a>
+                <a class="btn btn-outline-info btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                    Detalhes
+                </a>
+                    <a class="btn btn-danger btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                        Apagar
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
